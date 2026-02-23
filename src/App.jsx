@@ -77,7 +77,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="logo" onClick={() => { setView('home'); setActiveDeck(null); }}>
-          🏔️ Landforms
+          🌦️ Climate
         </h1>
         <nav className="nav">
           <button className={`nav-btn ${view === 'home' ? 'active' : ''}`} onClick={() => { setView('home'); setActiveDeck(null); }}>Home</button>
@@ -89,7 +89,7 @@ function App() {
         {view === 'home' && (
           <div className="home">
             <div className="hero">
-              <h2>UPSC Prelims — Landforms</h2>
+              <h2>UPSC Prelims — Climate</h2>
               <p className="hero-sub">Flashcards & Quizzes with Spaced Repetition</p>
             </div>
             <div className="deck-list">
