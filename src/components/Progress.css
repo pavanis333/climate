@@ -1,0 +1,127 @@
+.progress-container {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.progress-title {
+  font-size: var(--font-size-xl);
+  color: var(--text-primary);
+}
+
+.progress-deck {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.deck-header h3 {
+  font-size: var(--font-size-lg);
+}
+
+.deck-pct {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.progress-bar {
+  height: 10px;
+  background: var(--bg-secondary);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--success));
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 12px 8px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.stat-value {
+  display: block;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-value.due { color: var(--warning); }
+.stat-value.learned { color: var(--info); }
+.stat-value.mastered { color: var(--success); }
+
+.stat-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.quiz-history {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.quiz-history h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: 16px;
+}
+
+.quiz-record {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.quiz-record:last-child { border-bottom: none; }
+
+.quiz-record-score { color: var(--text-primary); font-weight: 600; }
+.quiz-record-pct { color: var(--accent); font-weight: 600; }
+
+.reset-section {
+  text-align: center;
+  padding: 24px;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #1a1a1a;
+  font-weight: 700;
+  padding: 14px 28px;
+  font-size: var(--font-size-sm);
+}
+
+.reset-warning {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
