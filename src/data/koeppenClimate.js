@@ -1,4 +1,4 @@
-import { getInitialCard } from './spacedRepetition';
+import { getInitialCard } from '../spacedRepetition';
 
 // Deck: Koeppen Climate Classification
 export const koeppenDeck = {
