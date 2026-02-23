@@ -104,8 +104,32 @@
 
 .quiz-record:last-child { border-bottom: none; }
 
-.quiz-record-score { color: var(--text-primary); font-weight: 600; }
-.quiz-record-pct { color: var(--accent); font-weight: 600; }
+.quiz-record-date { color: var(--text-muted); min-width: 130px; font-size: 14px; }
+.quiz-record-deck { flex: 1; color: var(--text-secondary); font-size: 15px; }
+.quiz-record-score { color: var(--text-primary); font-weight: 600; min-width: 50px; text-align: right; }
+.quiz-record-pct { font-weight: 600; min-width: 50px; text-align: right; }
+.quiz-record-pct.good { color: var(--success); }
+.quiz-record-pct.needs-work { color: var(--warning); }
+
+.section-heading {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.weak-areas { border-color: var(--warning); }
+
+.weak-record {
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start !important;
+}
+
+.weak-question {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
 
 .reset-section {
   text-align: center;
