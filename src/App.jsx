@@ -24,6 +24,7 @@ function App() {
     saveData(data);
   }, [data]);
 
+  const allCards = activeDeck ? activeDeck.cards : [];
   const dueCards = activeDeck ? getDueCards(activeDeck.cards) : [];
 
   function handleSelectDeck(deck, mode) {
@@ -35,7 +36,7 @@ function App() {
   }
 
   function handleRate(quality) {
-    const updated = reviewCard(dueCards[cardIndex], quality);
+    const updated = reviewCard(allCards[cardIndex], quality);
     setData(prev => ({
       ...prev,
       decks: prev.decks.map(d =>
@@ -44,16 +45,13 @@ function App() {
           : d
       ),
     }));
-    // Update activeDeck ref too
     setActiveDeck(prev => ({
       ...prev,
       cards: prev.cards.map(c => c.id === updated.id ? updated : c),
     }));
     setShowAnswer(false);
-    if (cardIndex < dueCards.length - 1) {
+    if (cardIndex < allCards.length - 1) {
       setCardIndex(i => i + 1);
-    } else {
-      setCardIndex(0);
     }
   }
 
@@ -125,25 +123,18 @@ function App() {
             <div className="study-header">
               <button className="btn-back" onClick={() => setView('home')}>← Back</button>
               <h2>{activeDeck.name}</h2>
-              <span className="due-count">{dueCards.length} due</span>
+              <span className="due-count">{allCards.length} cards</span>
             </div>
-            {dueCards.length > 0 ? (
-              <>
-                <div className="card-counter">Card {cardIndex + 1} of {dueCards.length}</div>
-                <Flashcard
-                  card={dueCards[cardIndex]}
-                  onRate={handleRate}
-                  showAnswer={showAnswer}
-                  setShowAnswer={setShowAnswer}
-                />
-              </>
-            ) : (
-              <div className="all-done">
-                <p className="done-emoji">🎉</p>
-                <p className="done-text">All caught up! No cards due right now.</p>
-                <p className="done-sub">Come back later for more review.</p>
-              </div>
-            )}
+            <Flashcard
+              card={allCards[cardIndex]}
+              onRate={handleRate}
+              showAnswer={showAnswer}
+              setShowAnswer={setShowAnswer}
+              cardIndex={cardIndex}
+              totalCards={allCards.length}
+              onPrev={() => { setCardIndex(i => i - 1); setShowAnswer(false); }}
+              onNext={() => { setCardIndex(i => i + 1); setShowAnswer(false); }}
+            />
           </div>
         )}
 

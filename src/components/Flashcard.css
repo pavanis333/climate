@@ -73,6 +73,36 @@
   color: var(--text-muted);
 }
 
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.nav-btn-arrow {
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  font-size: var(--font-size-sm);
+  border-radius: 8px;
+}
+
+.nav-btn-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nav-counter {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  min-width: 80px;
+  text-align: center;
+}
+
 .rating-buttons {
   display: flex;
   flex-direction: column;

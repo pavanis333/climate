@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import './Flashcard.css';
 
-export default function Flashcard({ card, onRate, showAnswer, setShowAnswer }) {
+export default function Flashcard({ card, onRate, showAnswer, setShowAnswer, cardIndex, totalCards, onPrev, onNext }) {
   return (
     <div className="flashcard-container">
       <div className={`flashcard ${showAnswer ? 'flipped' : ''}`} onClick={() => setShowAnswer(!showAnswer)}>
@@ -17,17 +16,22 @@ export default function Flashcard({ card, onRate, showAnswer, setShowAnswer }) {
           </div>
         </div>
       </div>
-      {showAnswer && (
-        <div className="rating-buttons">
-          <p className="rate-label">How well did you know this?</p>
-          <div className="rate-row">
-            <button className="rate-btn again" onClick={() => onRate(0)}>Again</button>
-            <button className="rate-btn hard" onClick={() => onRate(1)}>Hard</button>
-            <button className="rate-btn good" onClick={() => onRate(2)}>Good</button>
-            <button className="rate-btn easy" onClick={() => onRate(3)}>Easy</button>
-          </div>
+
+      <div className="nav-buttons">
+        <button className="nav-btn-arrow" onClick={onPrev} disabled={cardIndex <= 0}>← Prev</button>
+        <span className="nav-counter">{cardIndex + 1} / {totalCards}</span>
+        <button className="nav-btn-arrow" onClick={onNext} disabled={cardIndex >= totalCards - 1}>Next →</button>
+      </div>
+
+      <div className="rating-buttons">
+        <p className="rate-label">How well did you know this?</p>
+        <div className="rate-row">
+          <button className="rate-btn again" onClick={() => onRate(0)}>Again</button>
+          <button className="rate-btn hard" onClick={() => onRate(1)}>Hard</button>
+          <button className="rate-btn good" onClick={() => onRate(2)}>Good</button>
+          <button className="rate-btn easy" onClick={() => onRate(3)}>Easy</button>
         </div>
-      )}
+      </div>
     </div>
   );
 }
